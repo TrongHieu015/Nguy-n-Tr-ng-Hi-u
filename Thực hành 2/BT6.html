@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background: linear-gradient(to bottom right, pink, lightgreen);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .login-form {
+        background: linear-gradient(to bottom right, rgb(162, 233, 254) 50%, rgb(255, 157, 253) 50%);
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        height: 70vh;
+        box-shadow: 0px 0px 10px rgba(100, 9, 227, 0.1);
+        position: relative;
+    }
+    .login-form i {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        padding: 10px;
+        pointer-events: none;
+    }
+    .login-form input[type="password"] {
+        padding-right: 40px; /* Make room for the icon */
+    }
+    .login-form h1 {
+        text-align: center;
+        font-size: 7vh;
+        margin-bottom: 2px;
+    }
+    .login-form p {
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    .login-form input {
+        width: 100%;
+        height: 8vh;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box; /* Add this line */
+    }
+    .login-form button {
+        width: 100%;
+        height: 9vh;
+        padding: 10px;
+        border: none;
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        font-size:2.5vh;
+    }
+    .login-form button:hover {
+        background: rgb(166, 166, 169);
+    }
+    .button-row {
+        display: flex;
+        margin: 30px;
+        margin-left: 90px;
+        justify-content: space-between;
+    }
+    .button-row p {
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;  /* Center the text */
+        align-items: center;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+    }
+    .button-row a {
+        margin-right: 15px;
+        text-decoration: none;
+        text-align: center;
+        color: rgb(0, 0, 0);
+    }
+    .button-row button {
+        background: rgb(10, 231, 243);
+        color: black;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+        font-size:2.5vh;
+    }
+    .button-row button:hover {
+        background: rgb(6, 90, 168);
+    }
+</style>
+</head>
+</head>
+<body>
+    <div class="login-form">
+        <h1>Log In</h1>
+        <p>Login here using your username and password</p>
+        <input type="text" placeholder="👤 UserName">
+        <input type="password" id="password" placeholder="🔑 Password">
+        <button>Log In</button>
+        <div class="button-row">
+            <p><a href="#">Forgot Password</a></p> 
+            <button>Sign Up 👮</button>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var loginButton = document.getElementsByTagName('button')[0];
+            var signupButton = document.getElementsByTagName('button')[1];
+            var forgotPasswordLink = document.getElementsByTagName('a')[0];
+        
+            loginButton.onclick = function() {
+                var username = document.getElementsByTagName('input')[0].value;
+                var password = document.getElementsByTagName('input')[1].value;
+                alert('Username: ' + username + '\nPassword: ' + password);
+            };
+        
+            signupButton.onclick = function() {
+                alert('Signup button clicked');
+            };
+        
+            forgotPasswordLink.onclick = function() {
+                alert('Forgot Password link clicked');
+            };
+        };
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password');
+            var togglePasswordIcon = document.getElementById('togglePassword');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePasswordIcon.textContent = '🙈';
+            } else {
+                passwordInput.type = "password";
+                togglePasswordIcon.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>

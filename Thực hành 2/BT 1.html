@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 0 auto;
+            width: 300px;
+        }
+        .input-container {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 10px; /* Bo góc */
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <label for="a">Hệ số a:</label><br>
+            <input type="number" id="a" name="a">
+        </div>
+        <div class="input-container">
+            <label for="b">Hệ số b:</label><br>
+            <input type="number" id="b" name="b">
+        </div>
+        <button onclick="solve()">Giải Phương Trình</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function solve() {
+            var a = document.getElementById('a').value;
+            var b = document.getElementById('b').value;
+            var result = document.getElementById('result');
+
+            if (a == 0) {
+                if (b == 0) {
+                    result.innerHTML = 'Phương trình vô số nghiệm';
+                } else {
+                    result.innerHTML = 'Phương trình vô nghiệm';
+                }
+            } else {
+                result.innerHTML = 'KẾT QUẢ <BR> Nghiệm x = ' + (-b/a);
+            }
+        }
+    </script>
+</body>
+</html>

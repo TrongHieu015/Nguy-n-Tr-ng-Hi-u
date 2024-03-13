@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+        background: linear-gradient(to bottom right, rgb(33, 251, 41), rgb(37, 0, 123));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+        .bmi-container {
+            margin: 30px auto; 
+            width: 350px;
+            border: 1px solid #000; /* Đường viền */
+            border-radius: 10px; /* Bo góc */
+            padding: 20px; /* Khoảng cách từ nội dung đến viền */
+            background: linear-gradient(to top, rgb(255, 255, 255) 78%, rgb(0, 44, 125) 25%); /* Thêm dòng này */
+        }
+        .bmi-form input, select {
+            width: 100%; 
+            margin-bottom: 20px; 
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .bmi-container h1 {
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin-bottom: 10vh;
+        font-family: Arial, sans-serif;
+        }
+        .bmi-container p {
+        margin-bottom: 1vh;
+        font-family: Arial, sans-serif;
+        }
+        .bmi-form button {
+            background-color: #0dbeef; 
+            color: white; 
+            border: none;
+            width: 150px;
+            height: 5vh;
+            display: block;
+            border-radius: 10px; /* Bo góc */
+            margin: auto;
+            font-size: 2vh;
+            font-family: Arial, sans-serif;
+        }
+        .bmi-form button:hover {
+        background: rgb(6, 90, 168);
+    }
+        .bmi-result {
+            margin: 20px auto; 
+            width: 300px; 
+            text-align: center;
+            font-weight: bold;
+        }
+        .bmi-value {
+            color: rgb(9, 40, 178);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 4vh; 
+        }
+        .result-text {
+            font-family: Arial, sans-serif;
+            color: rgb(255, 0, 0);
+            font-size: 3vh; 
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="bmi-container">
+        <h1>TÍNH CHỈ SỐ BMI</h1>
+        <div class="bmi-form">
+            <p>Nhập cân nặng?</p>
+            <input type="number" id="weight" placeholder="Cân nặng (kg)">
+            <p>Nhập chiều cao?</p>
+            <input type="number" id="height" placeholder="Chiều cao (m)">
+            <p>Chọn loại tuổi?</p>
+            <select id="ageType">
+                <option value="">Loại tuổi</option>
+                <option value="trung niên">Trung niên</option>
+                <option value="trung niên, già lớn tuổi">Trung niên, già lớn tuổi</option>
+                <option value="già, lớn tuổi">Già, lớn tuổi</option>
+            </select>
+            <button onclick="calculateBMI()">TÍNH BMI</button>
+        </div>
+        <div class="bmi-result" id="result"></div>
+    </div>
+    <script>
+        function calculateBMI() {
+            var weight = document.getElementById('weight').value;
+            var height = document.getElementById('height').value;
+            var ageType = document.getElementById('ageType').value;
+
+            var bmi = weight / (height * height);
+            var result = '';
+
+            if (bmi < 18.5) {
+                result = 'Dưới chuẩn';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                result = 'Bình thường';
+            } else if (bmi >= 25.0 && bmi < 29.9) {
+                result = 'Thừa cân';
+            } else if (bmi >= 30.0 && bmi < 34.9) {
+                result = 'Béo phì cấp độ 1';
+                if (ageType == 'trung niên') {
+                    result += ', Khám định kì';
+                }
+            } else if (bmi >= 35.0 && bmi < 39.9) {
+                result = 'Béo phì cấp độ 2';
+                if (ageType == 'trung niên, già lớn tuổi') {
+                    result += ', Tập thể dục thường xuyên';
+                }
+            } else {
+                result = 'Béo phì cấp độ 3';
+                if (ageType == 'già, lớn tuổi') {
+                    result += ', Hạn chế ăn mỡ động vật';
+                }
+            }
+
+            var bmiResult = 'KẾT QUẢ <BR> <span class="bmi-value">' + bmi.toFixed(2) + '</span>';
+            var resultText = '<span class="result-text">' + result.split(', ').join('</span><br><span class="result-text">') + '</span>';
+
+            document.getElementById('result').innerHTML = bmiResult + '<br>' + resultText;
+        }
+    </script>
+</body>
+</html>

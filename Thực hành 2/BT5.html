@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #333;
+            padding: 150px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        .login-header {
+            color: white;
+            font-size: 24px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .login-input {
+            width: 280px; /* Điều chỉnh chiều rộng của các ô nhập liệu */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 7px;
+            background-color: #444;
+            color: white;
+        }
+        .login-button {
+            background-color: #ff0040;
+            height: 90px; /* Điều chỉnh chiều cao của các ô nhập liệu */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #880303;
+        }
+        .outer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .input-fields {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="login" action="/submit_login-header">
+        <div class="outer-container">
+            <div class="login-container">
+                <div class="login-header">
+                    📲 Login
+                </div>
+                <div class="input-container">
+                    <div class="input-fields">
+                        <input type="text" id="username" class="login-input" placeholder="Username          	               	                     👮" required>
+                        <input type="password" id="password" class="login-input" placeholder="Password                                                       🔑" required>
+                    </div>
+                    <input type="submit" class="login-button" value="Login">
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('login').addEventListener('submit', function(event) {
+          event.preventDefault();
+          var response = "Username: " + document.getElementById('username').value + "\n" +
+                         "Password: " + document.getElementById('password').value;
+          alert(response);
+        });
+    </script>
+</body>
+</html>

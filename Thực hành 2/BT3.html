@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.container {
+  display: flex;
+  align-items: flex-start; /* Thêm dòng này */
+}
+.info {
+  width: 50%;
+  padding: 20px;
+}
+.form {
+  width: 100%;
+  padding: 20px;
+}
+input, textarea {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+input[type=submit] {
+  background-color: #0ca96d;
+  color: white;
+  padding: 12px;
+  width: 200px;
+  border: none;
+  
+  cursor: pointer;
+  border-radius: 8px; /* Bo góc */
+  
+}
+input[type=submit]:hover {
+  background-color: #09f320;
+}
+hr {
+  border: 1px solid #ff0303;
+}
+h1 {
+  color: #3809f3;
+  margin-left: 2.5vh;
+}
+h2 {
+  color: #920cb7;
+}
+ht {
+  color: #ff0000;
+  font-size: 25px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>Liên hệ</h1>
+<hr>
+
+<form id="myForm" action="/submit_form">
+<div class="container">
+  <div class="info">
+    <ht>Thông tin</ht>
+    <p>🗺️  Kp. 6, P. Linh Trung, Tp. Thủ Đức, TP.HCM</p>
+    <p>📧  info@uit.edu.vn</p>
+    <p>☎️  +84 28 372 52002</p>
+  </div>
+  <div class="form">
+    <h2>Hãy liên lạc với chúng tôi bất cứ khi nào!!!</h2>
+    <input type="text" id="fname" placeholder="Họ và tên" required>
+    <input type="email" id="email" placeholder="Địa chỉ e-mail" required>
+    <input type="text" id="tieude"  placeholder="Tiêu đề của bài viết" required>
+    <textarea id="description" name="description" placeholder="Nội dung cần gửi" style="height:200px"></textarea>
+    <input type="submit" value="GỬI TIN NHẮN ✉️" >
+  </div>
+</div>
+
+<script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var response = "Họ và tên: " + this.fname.value + "\n" +
+                     "Địa chỉ E-mail: " + this.email.value + "\n" +
+                     "Tiêu đề bài viết: " + this.tieude.value + "\n" +
+                     "Nội dung cần gửi: " + this.description.value;
+      alert(response);
+    });
+</script>
+
+</body>
+</html>

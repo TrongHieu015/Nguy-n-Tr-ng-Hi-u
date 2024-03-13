@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #f0e5ff;
+  font-family: Arial, sans-serif;
+}
+form {
+  width: 800px;
+  height: 480px;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #d4e4f6;
+  border-radius: 10px; /* Bo góc */
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.container div {
+  width: 45%;
+}
+input[type=text], input[type=email], textarea {
+  width: 100%; /* Điều chỉnh chiều rộng của các ô nhập liệu */
+  height: 29px; /* Điều chỉnh chiều cao của các ô nhập liệu */
+  padding: 9px;
+  border: 1px solid #8e8888;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+}
+select {
+  width: 105%;
+  padding: 10px;
+  border: 1px solid #868282;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  height: 50px; /* Điều chỉnh chiều cao của ô chọn */
+}
+
+
+input[type=submit] {
+  background-color: #00b5e7;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px; /* Bo góc */
+  
+}
+input[type=submit]:hover {
+  background-color: #0d00ff;
+}
+h2 {
+  text-align: center;
+  color: #ad0781;
+}
+
+p {
+  text-align: center;
+  color: #7a7679;
+  font
+}
+</style>
+</head>
+
+
+<body>
+<h2>ĐÓNG GÓP Ý KIẾN VỀ SẢN PHẨM</h2>
+<p> Góp ý của bạn sẽ được chúng tôi xem xét, vui lòng nhập tiếng việt có dấu </p>
+
+<p>Các ý kiến đóng nên viết chi tiết rõ ràng, kèm theo các minh chứng xác thực thời gian và địa điểm (nếu có).</p>
+
+<form id="myForm" action="/submit_form">
+  <div class="container">
+    <div>
+      <input type="text" id="fname" placeholder="Họ và tên" required>
+      <input type="text" id="phone" placeholder="Số điện thoại" required>
+      <select id="goods" name="goods" required>
+        <option value="" disabled selected>Chọn loại hình hàng</option>
+        <option value="option1">Khách hàng VIP</option>
+        <option value="option2">Khách hàng bình thường</option>
+        <option value="option3">Khách hàng mới</option>
+    </select>     
+    </div>
+
+    <div>
+      <input type="text" id="card" placeholder="Mã thẻ" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="order" placeholder="Mã hóa đơn" required>
+    </div>
+  </div>
+
+  <textarea id="description" name="description" placeholder="Nhập chi tiết mô tả" style="height:200px"></textarea>
+
+
+  <input type="submit" value="GỬI Ý KIẾN ✉️" >
+</form>
+
+<script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var response = "Họ và tên: " + this.fname.value + "\n" +
+                 "Số điện thoại: " + this.phone.value + "\n" +
+                 "E-mail: " + this.email.value + "\n" +
+                 "Chọn loại hình hàng: " + this.goods.value + "\n" +
+                 "Mã hiệu đơn: " + this.order.value + "\n" +
+                 "Mã thẻ: " + this.card.value + "\n" +
+                 "Nhập chi tiết mô tả: " + this.description.value;
+  alert(response);
+});
+</script>
+
+</body>
+</html>
