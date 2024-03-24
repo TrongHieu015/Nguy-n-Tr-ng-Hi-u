@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+:root{
+  --primary-color: rgb(31, 28, 29);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right,rgb(215,93,93), rgb(88,156,88));
+ font-family: 'Roboto'
+}
+.card {
+  margin: 120px auto;
+  width: 300px;
+  height: 480px;
+  background: rgb(5, 165, 125);
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  position: relative;
+}
+
+.card_heart,.card_cart {
+  font-size: 25px;
+  position: absolute;
+  left: 8px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.card_cart {
+  left: unset;
+  right: 20px;
+}
+.card_img{
+  margin-top: 2vh;
+  width: 260px;
+  transition: 0.5s;
+}
+.card_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.card_title, .card_price{
+  font-size: 25px;
+  font-weight: bold;
+  text-align:center;
+  transition:0.5s;
+}
+.card_title{
+  color: var(--primary-color);
+}
+
+.card_size, .card_color {
+  display: flex;
+  align-items:center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.card_size span {
+  padding: 1px 10px;
+  background: rgb(220,211,211);
+  color: black;
+  border-radius: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.card_color span{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer
+}
+
+.card_color_green{
+  background: green;
+}
+.card_color_red{
+  background: red;
+}
+.card_color_yellow{
+  background: rgb(202,232,9);
+}
+.card_color_bule{
+  background: rgb(50, 4, 255);
+}
+.card_color_tim{
+  background: rgb(251, 7, 239);
+}
+.card_action button{
+  background: var(--primary-color);
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  color: aliceblue;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.card_action button:hover {
+  transform: scale(0.9);
+}
+.card:hover .card_img{
+  transform: translateY(-110px) rotate(20deg);
+}
+
+.card:hover .card_title{
+  transform: translate(-15px, -50px);
+}
+.card:hover .card_price{
+  transform: translate(-100px, -50px);
+}
+.card_size{
+  margin-top: 150px;
+  visibility: hidden;
+  opacity: 0;
+}
+.card_size, .card_color, .card_action{
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.4s;
+}
+.card:hover .card_size,
+.card:hover .card_color,
+.card:hover .card_action{
+  visibility: visible;
+  opacity: 100;
+}
+.card:hover .card_size{
+  margin-top: -30px;
+}
