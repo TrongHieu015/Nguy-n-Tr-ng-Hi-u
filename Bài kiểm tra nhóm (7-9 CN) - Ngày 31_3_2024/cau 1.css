@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px; /* Tăng khoảng cách giữa các hàng */
+}
+
+.column {
+    flex: 0 0 auto;
+    width: 300px; /* Giảm chiều rộng của cột để giảm khoảng cách giữa các cột */
+    height: 300px;
+    padding: 2px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+    border-radius: 15px;
+    background-color: yellow;
+}
+
+.column:hover {
+    transform: scale(1.1);
+}
+
+.circle {
+    border-radius: 50%;
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: Arial, sans-serif; /* Thay đổi tên font chữ tại đây */
+}
+
+p {
+    font-family: Arial, sans-serif; /* Thay đổi tên font chữ tại đây */
+    text-align: center;
+    color: rgb(94, 95, 97);
+}

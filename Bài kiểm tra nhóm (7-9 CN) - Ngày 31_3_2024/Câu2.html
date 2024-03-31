@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="cau2.css" />
+</head>
+<body>
+<h2>ĐÓNG GÓP Ý KIẾN VỀ SẢN PHẨM</h2>
+<p> Góp ý của bạn sẽ được chúng tôi xem xét, vui lòng nhập tiếng việt có dấu </p>
+
+<p>Các ý kiến đóng nên viết chi tiết rõ ràng, kèm theo các minh chứng xác thực thời gian và địa điểm (nếu có).</p>
+
+<form id="myForm" action="/submit_form">
+  <div class="container">
+    <div>
+      <input type="text" id="fname" placeholder="Họ và tên" required>
+      <input type="text" id="phone" placeholder="Số điện thoại" required>
+      <select id="goods" name="goods" required>
+        <option value="" disabled selected>Chọn loại hình hàng</option>
+        <option value="option1">Khách hàng VIP</option>
+        <option value="option2">Khách hàng bình thường</option>
+        <option value="option3">Khách hàng mới</option>
+    </select>     
+    </div>
+
+    <div>
+      <input type="text" id="card" placeholder="Mã thẻ" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="order" placeholder="Mã hóa đơn" required>
+    </div>
+  </div>
+
+  <textarea id="description" name="description" placeholder="Nhập chi tiết mô tả" style="height:200px"></textarea>
+
+
+  <input type="submit" value="GỬI Ý KIẾN ✉️" >
+</form>
+<div id="reviews"></div>
+
+<script src="Cau2.js"></script>
+
+</body>
+</html>
